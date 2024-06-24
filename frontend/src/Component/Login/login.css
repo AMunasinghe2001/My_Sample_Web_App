@@ -1,0 +1,106 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+  }
+  
+  .login {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 4px 9px 33px rgba(0, 0, 0, 0.5);
+    width: 400px;
+    max-width: 100%;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 10px 30px 10px;
+  }
+  
+  .logh2 {
+    margin-bottom: 1rem;
+    text-align: center;
+    color: #333;
+    font-size: 30px;
+  }
+
+  .logp{
+    text-align: center;
+  }
+  
+  label {
+    margin-bottom: 1rem;
+    color: #333;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.5s;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  p {
+    font-size: 0.9rem;
+  }
+  
+  /* Responsive styling */
+  @media (max-width: 768px) {
+    .login {
+      flex-direction: column;
+      margin: 5%;
+      width: 100%;
+      padding: 7% 5% 5%;
+    }
+  
+    .logh2 {
+      font-size: 24px;
+    }
+
+    
+    button {
+      font-size: 1rem;
+    }
+  
+    p {
+      font-size: 0.8rem;
+    }
+  }
+  
