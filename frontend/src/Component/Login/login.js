@@ -9,6 +9,8 @@ const Login = () => {
     userPassword: "",
   });
 
+  const [errorMessage, setErrorMessage] = useState("");
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -20,10 +22,21 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5001/login", formData);
-      console.log(response.data);
+      const response = await axios.post("http://localhost:5001/login", {
+        username: formData.userEmail,
+        password: formData.userPassword,
+      });
+
+      // If login is successful, redirect to profile page
+      if (response.status === 200) {
+        alert("Login Successful!");
+        window.location.href = "/maiHome";
+      } else {
+        alert("Invalid Email or Password. Try Again!");
+      }
     } catch (error) {
       console.error("Error logging in:", error);
+      setErrorMessage("An error occurred during login. Please try again.");
     }
   };
 
@@ -56,6 +69,7 @@ const Login = () => {
           />
         </label>
         <button type="submit">Submit</button>
+        {errorMessage && <p className="error">{errorMessage}</p>}
         <p>
           Don't have an account? <a href="/register">Register now</a>
         </p>
