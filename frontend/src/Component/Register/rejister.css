@@ -5,7 +5,7 @@ body {
     height: 100vh;
     margin: 0;
     font-family: Arial, sans-serif;
-    background-image: linear-gradient(to bottom right, #0d032fd2, rgba(5, 170, 170, 0.527));
+    background-image: linear-gradient(to bottom right, #ccfcff, rgb(240, 254, 255));
   }
   
   .register {

@@ -22,15 +22,17 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5001/login", {
+      const response = await axios.post("http://localhost:5001/users/login", {
         username: formData.userEmail,
         password: formData.userPassword,
       });
 
-      // If login is successful, redirect to profile page
       if (response.status === 200) {
+        const { userName, userId } = response.data;
         alert("Login Successful!");
-        window.location.href = "/maiHome";
+
+        localStorage.setItem('userId', userId);
+        window.location.href = `/home?username=${userName}&userId=${userId}`;
       } else {
         alert("Invalid Email or Password. Try Again!");
       }

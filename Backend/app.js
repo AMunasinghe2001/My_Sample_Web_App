@@ -1,8 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const User = require('./model/Model');
-const userRoutes = require('./routes/Routes'); // Updated import
+const userRoutes = require('./routes/Routes'); // Ensure correct path
+const User = require('./model/Model'); // Import User model for login
+const bcrypt = require('bcryptjs'); // For password comparison
 
 const app = express();
 const port = 5001; // Changed port number
@@ -19,10 +20,9 @@ mongoose.connect("mongodb+srv://Anushanga:Anushanga2001@cluster0.4d2u3vi.mongodb
   .then(() => console.log('Connected to the database'))
   .catch((error) => console.error('Failed to connect to the database:', error));
 
-// Routes
-app.use('/users', userRoutes); // Use the correct route file
 
-// Start the server
+app.use('/users', userRoutes);
+
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });

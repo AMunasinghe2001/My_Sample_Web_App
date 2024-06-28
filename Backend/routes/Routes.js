@@ -1,11 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const usersController = require('../controllers/Controller');
+const userController = require('../controllers/userController'); // Ensure this path is correct
 
-router.get('/', usersController.getAllUsers);
-router.post('/', usersController.addUser);
-router.get('/:id', usersController.getById);
-router.put('/:id', usersController.updateUser);
-router.delete('/:id', usersController.deleteUser);
+router.post('/login', userController.login);
+router.get('/users', userController.getAllUsers);
+router.post('/users', userController.addUser);
+router.get('/users/:id', userController.getById);
+router.put('/users/:id', userController.updateUser);
+router.delete('/users/:id', userController.deleteUser);
 
 module.exports = router;
