@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 export default function MainHome() {
     return (
       <div>
-        <div className='container'>
+        <div className='bHcontainer'>
           <div className='main'>
             <div class="row">
               <div class="column">

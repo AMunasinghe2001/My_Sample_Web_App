@@ -4,41 +4,66 @@ import "./rejister.css";
 import Reg from "./img/reg.png";
 
 const Register = () => {
-  const [formData, setFormData] = useState({
-    userName: "",
+  // const [formData, setFormData] = useState({
+  //   userName: "",
+  //   userMobile: "",
+  //   userEmail: "",
+  //   userPassword: "",
+  //   userAgree: false,
+  // });
+
+  // const [errorMessage, setErrorMessage] = useState("");
+
+  // const handleChange = (e) => {
+  //   const { name, value, type, checked } = e.target;
+  //   setFormData({
+  //     ...formData,
+  //     [name]: type === "checkbox" ? checked : value,
+  //   });
+  // };
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     const response = await axios.post("http://localhost:5001/users", formData);
+
+  //     if (response.status === 201) {
+  //       alert("Registration Successful!");
+  //       window.location.href = "/login";
+  //     } else {
+  //       alert("Registration Failed. Try Again!");
+  //     }
+  //   } catch (error) {
+  //     console.error("Error registering:", error);
+  //     setErrorMessage("An error occurred during registration. Please try again.");
+  //   }
+  // };
+
+  function Register() {
+    const history = useNavigate();
+    const[user,setUser]=useState({
+      userName: "",
     userMobile: "",
     userEmail: "",
     userPassword: "",
     userAgree: false,
-  });
-
-  const [errorMessage, setErrorMessage] = useState("");
-
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setFormData({
-      ...formData,
-      [name]: type === "checkbox" ? checked : value,
-    });
+    })
   };
-
-  const handleSubmit = async (e) => {
+const handleInputChange =(e)=>{
+  const{name,value}=e.target;
+  setUser((PrevUser)=>({...PrevUser,[name]:value}))
+};
+const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const response = await axios.post("http://localhost:5001/users", formData);
-
-      if (response.status === 201) {
-        alert("Registration Successful!");
-        window.location.href = "/login";
-      } else {
-        alert("Registration Failed. Try Again!");
-      }
-    } catch (error) {
-      console.error("Error registering:", error);
-      setErrorMessage("An error occurred during registration. Please try again.");
-    }
-  };
-
+    sendRequest()
+    .then(()=>{
+      alert("Register Success");
+      history("/login");
+    })
+    catch ((error) {
+          alert("Error registering:", err.message);
+    });
+}
   return (
     <div className="register" id="register">
       <div className="pic">
